@@ -1,16 +1,26 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view />
+  <div id="app" class="font-lato">
+    <!-- <youtube-logo /> -->
+    <!-- <side-drawer class="basis-1/5"></side-drawer> -->
+
+    <router-view></router-view>
   </div>
 </template>
 
+<script>
+// import SideDrawer from "./components/SideDrawer.vue";
+// import YoutubeLogo from "./components/YoutubeLogo.vue";
+
+export default {
+  components: {
+    // SideDrawer,
+    // YoutubeLogo,
+  },
+};
+</script>
+
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
