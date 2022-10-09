@@ -1,52 +1,19 @@
 <template>
-  <div
-    class="flex min-h-screen grow flex-col items-center justify-between overflow-hidden bg-[#161416]"
-  >
-    <div class="-mt-5">
-      <img
-        src="../assets/svgs/youtube-icon.svg"
-        alt="youtube-logo"
-        class="h-28 w-28"
-      />
-    </div>
+  <div class="grid grid-flow-row overflow-hidden bg-[#161416]">
+    <display-header>
+      Who's Watching<span class="text-[#E70000]">?</span>
+    </display-header>
 
-    <div class="-mt-16">
-      <h1 class="text-6xl font-semibold text-white">
-        Who's Watching<span class="text-[#E70000]">?</span>
-      </h1>
-    </div>
+    <profile :profiles="profiles" />
 
-    <!-- AVATARS -->
-    <div class="flex justify-around">
-      <button
-        class="profile-animate group relative mx-9 flex translate-y-[100vh] flex-col items-center gap-5 opacity-0 drop-shadow-2xl"
-        ref="profiles"
-        v-for="(profile, index) in profiles"
-        :key="index"
-        @click="selectProfile(index)"
-      >
-        <img
-          class="h-20 w-20 rounded-full object-cover ring-7 ring-[#393638] transition-all ease-in group-hover:scale-110 group-hover:ring-[#E70000] sm:h-24 sm:w-24 md:h-36 md:w-36 lg:h-52 lg:w-52"
-          :src="profile.url"
-          :alt="profile.name"
-          :draggable="false"
-        />
-
-        <span
-          class="profile-text text-xl font-light capitalize text-gray-300 opacity-0 transition-all ease-in group-hover:font-bold"
-          >{{ profile.name }}</span
-        >
-      </button>
-    </div>
-
-    <footer class="w-3/5 cursor-pointer justify-end bg-[#E70000] p-10">
-      <span class="font-semibold uppercase text-white">manage profiles</span>
-    </footer>
+    <manage-profiles />
   </div>
 </template>
 
 <script>
-import anime from "animejs";
+import Profile from "../components/Profile.vue";
+import DisplayHeader from "../components/DisplayHeader.vue";
+import ManageProfiles from "../components/ManageProfiles.vue";
 
 export default {
   data: () => ({
@@ -68,61 +35,10 @@ export default {
         name: "aquaman",
       },
     ],
-    profileClicked: false,
   }),
-  mounted() {
-    this.go();
-    this.animateProfileText();
-  },
-  methods: {
-    go() {
-      const tl = anime.timeline({ easing: "easeOutExpo", duration: 2000 });
-
-      tl.add({
-        targets: ".profile-animate",
-        opacity: 1,
-        translateY: -50,
-        delay: anime.stagger(150),
-      });
-    },
-
-    animateProfileText() {
-      const tl = anime.timeline({ easing: "easeOutExpo", duration: 1500 });
-
-      tl.add({
-        targets: ".profile-text",
-        opacity: 1,
-        delay: anime.stagger(150),
-      });
-    },
-
-    selectProfile(index) {
-      this.profileClicked = true;
-
-      const tl = anime.timeline({ easing: "easeInOutCirc", duration: 250 });
-
-      tl.add({
-        targets: `.profile-animate:nth-child(${index + 1})`,
-        scale: 0.8,
-      });
-
-      tl.add({
-        targets: `.profile-animate:nth-child(${index + 1})`,
-        scale: 1,
-      });
-
-      tl.add({
-        targets: ".profile-animate",
-        opacity: 0,
-        translateY: 150,
-        delay: anime.stagger(150),
-      });
-
-      setTimeout(() => {
-        this.$router.push("/home");
-      }, 1000);
-    },
-  },
+  components: { Profile, DisplayHeader, ManageProfiles },
+  mounted() {},
+  methods: {},
 };
 </script>
 

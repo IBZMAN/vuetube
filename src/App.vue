@@ -1,20 +1,29 @@
 <template>
-  <div id="app" class="font-lato">
-    <!-- <youtube-logo /> -->
+  <div id="app" class="grid-rows-8 grid min-h-screen overflow-hidden font-lato">
+    <SVGLogo class="row-span-auto" :doAnimation="this.doAnimation" />
     <!-- <side-drawer class="basis-1/5"></side-drawer> -->
 
-    <router-view></router-view>
+    <router-view
+      class="row-span-5"
+      @profileSelected="handleProfileSelected"
+    ></router-view>
   </div>
 </template>
 
 <script>
-// import SideDrawer from "./components/SideDrawer.vue";
-// import YoutubeLogo from "./components/YoutubeLogo.vue";
+import SVGLogo from "./components/SVGLogo.vue";
 
 export default {
   components: {
-    // SideDrawer,
-    // YoutubeLogo,
+    SVGLogo,
+  },
+
+  data: () => ({ doAnimation: false }),
+
+  methods: {
+    handleProfileSelected(value) {
+      this.doAnimation = value;
+    },
   },
 };
 </script>
@@ -24,16 +33,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
 }
 
 nav a.router-link-exact-active {
