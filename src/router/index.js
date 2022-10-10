@@ -11,7 +11,7 @@ const routes = [
   },
   {
     path: "/",
-    name: "home",
+    name: "profile",
     component: () => import("../views/WhosWatching.vue"),
   },
 ];

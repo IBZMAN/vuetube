@@ -33,7 +33,9 @@ import anime from "animejs";
 export default {
   name: "ProfileComponent",
   props: ["profiles"],
-  data: () => ({ profileClicked: false }),
+  data: () => ({
+    //
+  }),
   methods: {
     go() {
       const tl = anime.timeline({ easing: "easeOutExpo", duration: 2000 });
@@ -61,14 +63,11 @@ export default {
 
       const tl = anime.timeline({ easing: "easeInOutCirc", duration: 250 });
 
-      tl.add({
-        targets: `.profile-animate:nth-child(${index + 1})`,
-        scale: 0.8,
-      });
-
-      tl.add({
-        targets: `.profile-animate:nth-child(${index + 1})`,
-        scale: 1,
+      [0.8, 1].forEach((value) => {
+        tl.add({
+          targets: `.profile-animate:nth-child(${index + 1})`,
+          scale: value,
+        });
       });
 
       tl.add({
@@ -84,11 +83,11 @@ export default {
         translateY: 150,
       });
 
-      this.$emit("profileSelected", true);
+      this.$store.dispatch("setProfileClicked", true);
 
-      // setTimeout(() => {
-      //   this.$router.push("/home");
-      // }, 1000);
+      setTimeout(() => {
+        this.$router.push("/home");
+      }, 1000);
     },
   },
   mounted() {

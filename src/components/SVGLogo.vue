@@ -1,13 +1,9 @@
 <template>
-  <div class="min-w-full">
+  <div class="max-w-full">
     <img
       src="../assets/svgs/Netflix-Logo.wine.svg"
       alt="netflix-logo"
-      class="test h-22 w-36"
-      :class="{
-        localDoAnimation:
-          'left-1/2 translate-x-1/2 transition-all duration-700 ease-in-out hover:-translate-x-0',
-      }"
+      class="h-22 w-36"
     />
   </div>
 </template>
@@ -22,13 +18,15 @@ export default {
     localDoAnimation() {
       return this.doAnimation;
     },
+    profileClicked() {
+      return this.$store.getters.getProfileClicked;
+    },
   },
   watch: {
     doAnimation: {
-      // the callback will be called immediately after the start of the observation
       immediate: true,
       handler() {
-        this.go();
+        //
       },
     },
   },
@@ -38,7 +36,7 @@ export default {
 
       tl.add({
         targets: ".test",
-        translateX: "50%",
+        translateX: "500%",
       });
     },
   },
