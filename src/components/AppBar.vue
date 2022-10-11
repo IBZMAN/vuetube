@@ -113,7 +113,6 @@ export default {
 </script>
 <style>
 .appbar-backdrop {
-  background: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0));
-  backdrop-filter: blur(1px);
+  background: linear-gradient(rgb(5, 5, 5), rgba(0, 0, 0, 0));
 }
 </style>
