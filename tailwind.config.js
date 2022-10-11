@@ -11,6 +11,7 @@ module.exports = {
       },
       fontFamily: {
         lato: ["Lato", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
       },
       dropShadow: {
         "3xl": "0 35px 35px #131113",

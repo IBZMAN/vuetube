@@ -1,5 +1,8 @@
 <template>
-  <div id="app" class="grid min-h-screen grid-rows-8 overflow-hidden font-lato">
+  <div
+    id="app"
+    class="font-poppins grid min-h-screen grid-rows-8 overflow-hidden"
+  >
     <AppBar />
 
     <transition name="fade">
