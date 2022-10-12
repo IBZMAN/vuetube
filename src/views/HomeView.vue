@@ -1,6 +1,6 @@
 <template>
   <div class="grid">
-    <div class="my-auto ml-12 text-start text-white">
+    <div class="my-auto mx-auto w-[90%] text-start text-white">
       <!-- GENRES -->
       <div class="mb-8 flex justify-start text-neutral-400">
         <button
@@ -42,7 +42,7 @@
       <!-- BUTTONS -->
       <div class="flex">
         <button
-          class="shadow-[] group flex h-10 w-32 items-center justify-center rounded-lg bg-[#E70000] transition-all hover:bg-[#cb0000] focus:outline-none focus:ring focus:ring-[#f09f9f]"
+          class="shadow-[] group flex h-10 w-32 items-center justify-center rounded-lg bg-red-primary transition-all hover:bg-[#cb0000] focus:outline-none focus:ring focus:ring-[#f09f9f]"
         >
           <div class="relative">
             <Play
@@ -64,7 +64,7 @@
         </button>
 
         <button
-          class="group mx-6 flex h-10 w-32 items-center justify-center rounded-lg bg-black transition-all ease-in-out hover:bg-zinc-700 focus:outline-none focus:ring focus:ring-[#E70000]"
+          class="group mx-6 flex h-10 w-32 items-center justify-center rounded-lg bg-black transition-all ease-in-out hover:bg-zinc-700 focus:outline-none focus:ring focus:ring-red-primary"
         >
           <div class="relative">
             <Plus class="mr-3 h-6 w-6 group-hover:text-black" />
@@ -79,7 +79,7 @@
         </button>
 
         <button
-          class="group flex h-10 w-32 items-center justify-center rounded-lg outline outline-1 transition-all ease-in-out hover:bg-zinc-700 focus:outline-none focus:ring focus:ring-[#E70000]"
+          class="group flex h-10 w-32 items-center justify-center rounded-lg outline outline-1 transition-all ease-in-out hover:bg-zinc-700 focus:outline-none focus:ring focus:ring-red-primary"
         >
           <div class="relative">
             <ChevronDown class="mr-3 h-6 w-6 group-hover:text-black" />

@@ -28,6 +28,11 @@ module.exports = {
         "span-7": "span 7 / span 7",
         "span-8": "span 8 / span 8",
       },
+      colors: {
+        red: {
+          primary: "#E70000",
+        },
+      },
     },
   },
   plugins: [],

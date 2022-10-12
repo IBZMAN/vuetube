@@ -12,7 +12,7 @@
         @click="selectProfile(index)"
       >
         <img
-          class="mb-5 h-24 w-24 rounded-full object-cover ring-7 ring-[#393638] transition-all ease-in group-hover:scale-110 group-hover:ring-[#E70000] sm:h-24 sm:w-24 md:h-32 md:w-32 lg:h-36 lg:w-36 xl:h-44 xl:w-44 2xl:h-52 2xl:w-52"
+          class="mb-5 h-24 w-24 rounded-full object-cover ring-7 ring-[#393638] transition-all ease-in group-hover:scale-110 group-hover:ring-red-primary sm:h-24 sm:w-24 md:h-32 md:w-32 lg:h-36 lg:w-36 xl:h-44 xl:w-44 2xl:h-52 2xl:w-52"
           :src="profile.url"
           :alt="profile.name"
           :draggable="false"

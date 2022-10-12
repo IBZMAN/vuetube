@@ -27,13 +27,13 @@
         <div v-if="currentRoute === '/home'">
           <div class="flex justify-around">
             <button
-              class="text-white transition ease-in-out hover:text-[#E70000]"
+              class="text-white transition ease-in-out hover:text-red-primary"
             >
               <Search />
             </button>
 
             <button
-              class="ml-3 text-white transition ease-in-out hover:text-[#E70000]"
+              class="ml-3 text-white transition ease-in-out hover:text-red-primary"
             >
               <Bell />
             </button>
@@ -43,7 +43,7 @@
               @click="test"
             >
               <img
-                class="h-7 min-h-full w-7 justify-self-center rounded-full object-cover ring-2 ring-neutral-300 transition-all ease-in group-hover:ring-[#E70000]"
+                class="h-7 min-h-full w-7 justify-self-center rounded-full object-cover ring-2 ring-neutral-300 transition-all ease-in group-hover:ring-red-primary"
                 :draggable="false"
                 :src="getLoggedInUser.profile_pic"
                 alt="profile_superman"
