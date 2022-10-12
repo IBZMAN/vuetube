@@ -95,29 +95,6 @@
       </div>
 
       <!-- EPISODES -->
-      <!-- <div class="mt-28 flex">
-        <button
-          v-for="(ep, index) in episode.episodes"
-          :key="index"
-          class="epi-btn group relative mr-2 w-[450px] rounded-lg outline-none transition-all duration-500 ease-in-out hover:z-50 hover:scale-125 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-[#E70000]"
-        >
-          <img
-            :src="'https://image.tmdb.org/t/p/original' + ep.still_path"
-            alt="episode"
-            class="rounded-lg group-hover:brightness-50"
-          />
-
-          <PlayCircle
-            class="absolute top-0 left-0 right-0 bottom-0 m-auto h-auto w-1/5 opacity-0 transition-all duration-300 ease-in-out group-hover:text-[#E70000] group-hover:opacity-100"
-          />
-
-          <span
-            class="episode-num absolute bottom-0 right-10 text-[3rem] font-bold text-transparent transition-all"
-            >{{ ep.episode_number }}</span
-          >
-        </button>
-      </div> -->
-
       <Carousel
         v-if="episode && episode.episodes.length > 0"
         :episodes="episode.episodes"

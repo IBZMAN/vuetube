@@ -45,11 +45,13 @@
               <img
                 class="h-7 min-h-full w-7 justify-self-center rounded-full object-cover ring-2 ring-neutral-300 transition-all ease-in group-hover:ring-[#E70000]"
                 :draggable="false"
-                src="https://comicbookmovie.com/images/articles/banners/197200.jpeg"
+                :src="getLoggedInUser.profile_pic"
                 alt="profile_superman"
               />
 
-              <span class="text-sm font-light">Ibraheem</span>
+              <span class="text-sm font-light capitalize">{{
+                getLoggedInUser.name
+              }}</span>
               <ChevronDown class="ml-1 h-4 w-4 justify-self-start" />
             </button>
           </div>
@@ -63,6 +65,7 @@
 import { Search, Bell, ChevronDown } from "lucide-vue";
 import SVGLogo from "./SVGLogo.vue";
 import Browse from "./Browse.vue";
+import loggedInUser from "../data/loggedInUser.json";
 
 export default {
   data: () => ({
@@ -70,21 +73,16 @@ export default {
     logout: false,
   }),
 
-  mounted() {
-    // if (this.currentRoute === "/home") {
-    //   // console.log(this.currentRoute);
-    //   this.anim = true;
-    // }
-    // if (this.currentRoute !== "/home") this.anim = false;
-  },
   watch: {
     $route() {
-      // this.anim = !this.anim;
       if (this.currentRoute === "/home") this.anim = true;
       if (this.currentRoute !== "/home") this.anim = false;
     },
   },
   computed: {
+    getLoggedInUser() {
+      return loggedInUser;
+    },
     currentRoute() {
       return this.$route.path;
     },

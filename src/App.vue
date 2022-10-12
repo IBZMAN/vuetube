@@ -1,23 +1,21 @@
 <template>
   <div
     id="app"
-    class="font-poppins grid min-h-screen grid-rows-8 overflow-hidden"
+    class="grid min-h-screen grid-rows-8 overflow-hidden font-poppins"
   >
     <AppBar />
 
     <transition name="fade">
-      <router-view class="row-span-7"></router-view>
+      <router-view class="row-span-8"></router-view>
     </transition>
   </div>
 </template>
 
 <script>
-// import SVGLogo from "./components/SVGLogo.vue";
 import AppBar from "./components/AppBar.vue";
 
 export default {
   components: {
-    // SVGLogo,
     AppBar,
   },
 };
