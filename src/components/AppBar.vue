@@ -1,7 +1,7 @@
 <template>
-  <div class="appbar-backdrop fixed h-[35%] min-w-full">
+  <div class="fixed min-w-full">
     <div
-      class="mx-auto grid max-w-[95%] grid-cols-6 items-center drop-shadow-3xl"
+      class="appbar-backdrop mx-auto grid grid-cols-6 items-center drop-shadow-3xl"
     >
       <div :class="[anim ? 'col-start-1' : 'col-span-4 col-start-3']">
         <div class="grid grid-cols-2">
@@ -106,7 +106,7 @@ export default {
     },
   },
 
-  components: { SVGLogo, Browse, Search, Bell, ChevronDown },
+  components: { SVGLogo, Search, Bell, ChevronDown, Browse },
 };
 </script>
 <style>

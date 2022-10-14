@@ -1,7 +1,7 @@
 <template>
   <carousel :per-page="4" :paginationSize="5" :centerMode="true">
     <slide v-for="(ep, index) in getEpisodes" :key="index">
-      <Thumbnail :video="ep" />
+      <Thumbnail :video="ep" :index="index" />
     </slide>
   </carousel>
 </template>
@@ -14,7 +14,9 @@ export default {
   name: "CarouselComponent",
   props: ["episodes"],
   data: () => ({}),
-
+  created() {
+    console.log(this.episodes);
+  },
   computed: {
     getEpisodes() {
       return this.episodes;
@@ -25,12 +27,12 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.wrapper {
-  grid-template-columns: repeat(3, 100%);
-
-  section {
-    grid-template-columns: repeat(5, auto);
-  }
+<style lang="scss">
+.VueCarousel {
+  height: 100%;
+}
+div.VueCarousel-inner {
+  margin-top: 2% !important;
+  margin-bottom: 2% !important;
 }
 </style>

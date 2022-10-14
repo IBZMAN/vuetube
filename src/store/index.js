@@ -7,13 +7,25 @@ export default new Vuex.Store({
   state: {
     profileClicked: false,
     logout: false,
+    selectedProfile: null,
+    currentHoverItem: null,
+    manageProfilesClicked: false,
   },
   getters: {
     getProfileClicked(state) {
       return state.profileClicked;
     },
+    getSelectedProfile(state) {
+      return state.selectedProfile;
+    },
     getLogout(state) {
       return state.logout;
+    },
+    getCurrentHoverItem(state) {
+      return state.currentHoverItem;
+    },
+    getManageProfilesClicked(state) {
+      return state.manageProfilesClicked;
     },
   },
   mutations: {
@@ -26,13 +38,26 @@ export default new Vuex.Store({
       // eslint-disable-next-line no-param-reassign
       state.logout = payload;
     },
+
+    UPDATE_SELECTED_PROFILE(state, payload) {
+      // eslint-disable-next-line no-param-reassign
+      state.selectedProfile = payload;
+    },
+    UPDATE_CURRENT_HOVER_ITEM(state, payload) {
+      // eslint-disable-next-line no-param-reassign
+      state.currentHoverItem = payload;
+    },
+
+    UPDATE_MANAGE_PROFILES_CLICKED(state, payload) {
+      // eslint-disable-next-line no-param-reassign
+      state.manageProfilesClicked = payload;
+    },
   },
   actions: {
     setProfileClicked(context, payload) {
       context.commit("UPDATE_PROFILE_CLICKED", payload);
     },
     setValueToStore(context, payload) {
-      console.log(payload.mutation, payload.value);
       context.commit(payload.mutation, payload.value);
     },
   },

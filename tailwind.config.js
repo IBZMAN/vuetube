@@ -22,7 +22,7 @@ module.exports = {
       },
       gridTemplateRows: {
         // Simple 8 row grid
-        8: "repeat(8, minmax(0, 1fr))",
+        8: "repeat(8, minmax(0, 100%))",
       },
       gridRow: {
         "span-7": "span 7 / span 7",

@@ -1,6 +1,6 @@
 <template>
   <div class="grid">
-    <div class="my-auto mx-auto w-[90%] text-start text-white">
+    <div class="mx-auto my-auto w-[90%] text-start text-white">
       <!-- GENRES -->
       <div class="mb-8 flex justify-start text-neutral-400">
         <button
@@ -25,9 +25,8 @@
         v-for="(movie, index) in movies"
         :key="index"
       >
-        <span class="text-md mr-5">{{ movie.year_released }}</span>
-
         <span class="text-md mr-5">{{ movie.age }}</span>
+        <span class="text-md mr-5">{{ movie.year_released }}</span>
 
         <span class="text-md mr-5">{{ movie.length }} </span>
       </div>
@@ -100,15 +99,6 @@
         :episodes="episode.episodes"
       />
     </div>
-
-    <div class="vignette absolute -z-10 min-h-screen min-w-full"></div>
-    <div class="x absolute -z-20 min-h-screen min-w-full"></div>
-
-    <img
-      :src="image"
-      alt="s"
-      class="bg absolute -z-30 h-[100%] w-[100%] object-cover"
-    />
   </div>
 </template>
 
@@ -156,17 +146,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.vignette {
-  height: 180px;
-  box-shadow: inset 0 0 200px 10px black;
-}
-
-.x {
-  background: linear-gradient(to right, rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0));
-  opacity: 0.92;
-}
-.bg {
-  object-position: 50% 70%;
-}
-</style>
+<style lang="scss" scoped></style>

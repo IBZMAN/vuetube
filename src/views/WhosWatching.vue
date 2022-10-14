@@ -1,5 +1,5 @@
 <template>
-  <div class="grid min-h-screen grid-flow-row overflow-hidden bg-[#161416]">
+  <div class="grid bg-[#161416]">
     <display-header>
       Who's Watching<span class="text-red-primary">?</span>
     </display-header>
@@ -22,7 +22,7 @@ export default {
       return profiles;
     },
   },
-  components: { Profile, DisplayHeader, ManageProfiles },
+  components: { Profile, ManageProfiles, DisplayHeader },
   created() {},
 };
 </script>
