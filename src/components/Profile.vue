@@ -1,15 +1,19 @@
 <template>
   <div
-    class="grid grid-cols-2 gap-10 place-self-center sm:grid-cols-3 lg:grid-cols-4"
+    class="grid grid-cols-2 place-items-center gap-10 place-self-center sm:grid-cols-3 lg:grid-cols-4"
   >
     <div
       v-for="(profile, index) in profiles"
       :key="index"
-      class="profile-animate group self-center"
+      class="profile-animate group"
     >
       <button
         class="profile-animate btn opacity-0 drop-shadow-4xl"
-        @click="selectProfile(index, profile)"
+        @click="
+          getManageProfilesClicked
+            ? deleteProfile(profile)
+            : selectProfile(index, profile)
+        "
         @mouseover="setCurrentHoverItem(index)"
         @mouseout="setCurrentHoverItem(null)"
       >
@@ -39,7 +43,9 @@
 
 <script>
 import anime from "animejs";
+import Swal from "sweetalert2";
 import DeleteProfile from "./DeleteProfile.vue";
+// import Alert from "./Alert.vue";
 
 export default {
   name: "ProfileComponent",
@@ -53,6 +59,15 @@ export default {
     },
   },
   methods: {
+    fire() {
+      Swal.fire({
+        template: "#my-template",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        }
+      });
+    },
     setCurrentHoverItem(index) {
       this.$store.dispatch("setValueToStore", {
         value: index,
@@ -103,7 +118,11 @@ export default {
       });
       setTimeout(() => {
         this.$router.push("/home");
-      }, 1000);
+      }, 1500);
+    },
+    deleteProfile(profile) {
+      console.log("deleting profile: ", profile);
+      this.fire(profile);
     },
   },
   mounted() {
@@ -115,9 +134,13 @@ export default {
 </script>
 
 <style scoped>
-/* .btn {
+.btn {
   display: grid;
   gap: 1.5rem;
-  grid-template-rows: 80% 100px;
-} */
+  grid-template-rows: auto 100px;
+}
+
+* {
+  text-align: -webkit-center;
+}
 </style>

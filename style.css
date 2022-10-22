@@ -6,10 +6,13 @@
 @import "tailwindcss/utilities";
 
 body {
-  background-color: #161416;
+  background-color: #161416 !important;
+  min-height: 100vh;
   /* overflow: hidden; */
+  background: linear-gradient(to right, rgb(0, 0, 0) 10%, rgba(0, 0, 0, 0));
 }
 
 html {
   scroll-behavior: smooth;
+  box-shadow: inset 0 0 200px 10px black;
 }

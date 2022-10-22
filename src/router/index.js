@@ -5,14 +5,19 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/home",
-    name: "home",
-    component: () => import("../views/HomeView.vue"),
+    path: "/tv",
+    name: "tv-show",
+    component: () => import("../views/TVShowView.vue"),
   },
   {
     path: "/",
-    name: "profile",
+    name: "whos-watching",
     component: () => import("../views/WhosWatching.vue"),
+  },
+  {
+    path: "/home",
+    name: "home-view",
+    component: () => import("../views/HomeView.vue"),
   },
 ];
 

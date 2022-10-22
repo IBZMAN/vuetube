@@ -1,5 +1,5 @@
 <template>
-  <div class="grid bg-[#161416]">
+  <div class="custom-grid grid content-start">
     <display-header>
       Who's Watching<span class="text-red-primary">?</span>
     </display-header>
@@ -22,9 +22,13 @@ export default {
       return profiles;
     },
   },
-  components: { Profile, ManageProfiles, DisplayHeader },
+  components: { Profile, DisplayHeader, ManageProfiles },
   created() {},
 };
 </script>
 
-<style></style>
+<style scoped>
+.custom-grid {
+  grid-template-rows: auto 60% auto;
+}
+</style>

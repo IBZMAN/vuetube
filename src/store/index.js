@@ -3,14 +3,16 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
+const getDefaultState = () => ({
+  profileClicked: false,
+  logout: false,
+  selectedProfile: null,
+  currentHoverItem: null,
+  manageProfilesClicked: false,
+});
+
 export default new Vuex.Store({
-  state: {
-    profileClicked: false,
-    logout: false,
-    selectedProfile: null,
-    currentHoverItem: null,
-    manageProfilesClicked: false,
-  },
+  state: getDefaultState(),
   getters: {
     getProfileClicked(state) {
       return state.profileClicked;
@@ -51,6 +53,9 @@ export default new Vuex.Store({
     UPDATE_MANAGE_PROFILES_CLICKED(state, payload) {
       // eslint-disable-next-line no-param-reassign
       state.manageProfilesClicked = payload;
+    },
+    UPDATE_INITIAL_STATE(state) {
+      Object.assign(state, getDefaultState());
     },
   },
   actions: {

@@ -1,30 +1,34 @@
 <template>
-  <div id="app" class="grid-custom max-h-screen min-h-screen font-poppins">
-    <AppBar class="row-start-1" />
+  <div id="app" class="grid-custom min-h-screen font-poppins">
+    <AppBar class="z-[999] row-start-1" />
 
     <router-view class="row-start-2"></router-view>
 
+    <!-- <manage-profiles /> -->
+
     <div v-if="currentRoute !== '/'">
-      <div
+      <!-- <div
         class="vignette absolute -z-10 row-span-full row-start-2 min-h-screen min-w-full"
-      ></div>
+      ></div> -->
       <div class="x absolute -z-20 row-span-full min-h-screen min-w-full"></div>
 
-      <img
+      <!-- <img
         :src="image"
         alt="s"
         class="bg absolute -z-30 h-[100%] w-[100%] object-cover"
-      />
+      /> -->
     </div>
   </div>
 </template>
 
 <script>
 import AppBar from "./components/AppBar.vue";
+// import ManageProfiles from "./components/ManageProfiles.vue";
 
 export default {
   components: {
     AppBar,
+    // ManageProfiles,
   },
   computed: {
     currentRoute() {
@@ -45,13 +49,10 @@ export default {
   text-align: center;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-
 .grid-custom {
   display: grid;
-  grid-template-rows: 10% 90%;
+
+  grid-template-rows: 100px auto;
 }
 
 .vignette {

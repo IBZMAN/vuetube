@@ -63,6 +63,7 @@
 
 <script>
 import { Search, Bell, ChevronDown } from "lucide-vue";
+import { mapMutations } from "vuex";
 import SVGLogo from "./SVGLogo.vue";
 import Browse from "./Browse.vue";
 import loggedInUser from "../data/loggedInUser.json";
@@ -70,7 +71,7 @@ import loggedInUser from "../data/loggedInUser.json";
 export default {
   data: () => ({
     anim: false,
-    logout: false,
+    // logout: false,
   }),
 
   watch: {
@@ -89,14 +90,19 @@ export default {
     profileClicked() {
       return this.$store.getters.getProfileClicked;
     },
+    logout() {
+      return this.$store.getters.getLogout;
+    },
   },
   methods: {
+    ...mapMutations({ resetState: "UPDATE_INITIAL_STATE" }),
     test() {
-      this.logout = true;
       this.$store.dispatch("setValueToStore", {
-        value: this.logout,
+        value: !this.logout,
         mutation: "UPDATE_LOGOUT",
       });
+
+      this.resetState();
 
       this.$store.dispatch("setValueToStore", {
         value: false,
